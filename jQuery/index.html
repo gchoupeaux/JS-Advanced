@@ -1,0 +1,209 @@
+<!--
+jQuery is a lightweight, "write less, do more", JavaScript library.
+https://www.w3schools.com/jquery/default.asp
+-->
+
+<!--The element Selector
+_______  _______  _        _______  _______ _________ _______  _______
+(  ____ \(  ____ \( \      (  ____ \(  ____ \\__   __/(  ___  )(  ____ )
+| (    \/| (    \/| (      | (    \/| (    \/   ) (   | (   ) || (    )|
+| (_____ | (__    | |      | (__    | |         | |   | |   | || (____)|
+(_____  )|  __)   | |      |  __)   | |         | |   | |   | ||     __)
+     ) || (      | |      | (      | |         | |   | |   | || (\ (
+/\____) || (____/\| (____/\| (____/\| (____/\   | |   | (___) || ) \ \__
+\_______)(_______/(_______/(_______/(_______/   )_(   (_______)|/   \__/
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+          $("button").click(function(){
+              $("p").hide();
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <h2>This is a heading</h2>
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+    <button>Click me to hide paragraphs</button>
+  </body>
+</html>
+
+<!-- The #id Selector -->
+<script>
+  $("#test")
+</script>
+<!-- TThe .class Selector -->
+<script>
+  $(".test")
+</script>
+<!--
+More Examples of jQuery Selectors
+https://www.w3schools.com/jquery/jquery_selectors.asp
+-->
+
+<!-- jQuery Syntax For Event Methods
+_______           _______  _       _________
+(  ____ \|\     /|(  ____ \( (    /|\__   __/
+| (    \/| )   ( || (    \/|  \  ( |   ) (
+| (__    | |   | || (__    |   \ | |   | |
+|  __)   ( (   ) )|  __)   | (\ \) |   | |
+| (       \ \_/ / | (      | | \   |   | |
+| (____/\  \   /  | (____/\| )  \  |   | |
+(_______/   \_/   (_______/|/    )_)   )_(
+
+-->
+<script>
+  $("p").click(function(){
+    $(this).hide();
+  });
+
+  $("p").dblclick(function(){
+      $(this).hide();
+  });
+
+  $("#p1").mouseenter(function(){
+    alert("You entered p1!");
+  });
+
+  $("#p1").mouseleave(function(){
+    alert("Bye! You now leave p1!");
+  });
+
+  $("#p1").mousedown(function(){
+    alert("Mouse down over p1!");
+  });
+
+  $("#p1").mouseup(function(){
+    alert("Mouse up over p1!");
+  });
+</script>
+
+<!-- The hover() method takes two functions
+and is a combination of the mouseenter() and mouseleave() methods.
+The first function is executed when the mouse enters the HTML element,
+and the second function is executed when the mouse leaves the HTML element: -->
+<script>
+  $(document).ready(function(){
+      $("#p1").hover(function(){
+          alert("You entered p1!");
+      },
+      function(){
+          alert("Bye! You now leave p1!");
+      });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+      $("input").focus(function(){
+          $(this).css("background-color", "#cccccc");
+      });
+      $("input").blur(function(){
+          $(this).css("background-color", "#ffffff");
+      });
+  });
+</script>
+
+<!-- The on() method attaches one or more event handlers for the selected elements. -->
+<script>
+  $(document).ready(function(){
+      $("p").on("click", function(){
+          $(this).hide();
+      });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+      $("p").on({
+          mouseenter: function(){
+              $(this).css("background-color", "lightgray");
+          },
+          mouseleave: function(){
+              $(this).css("background-color", "lightblue");
+          },
+          click: function(){
+              $(this).css("background-color", "yellow");
+          }
+      });
+  });
+</script>
+
+<!--
+_______  _______  _______  _______  _______ _________ _______
+(  ____ \(  ____ \(  ____ \(  ____ \(  ____ \\__   __/(  ____ \
+| (    \/| (    \/| (    \/| (    \/| (    \/   ) (   | (    \/
+| (__    | (__    | (__    | (__    | |         | |   | (_____
+|  __)   |  __)   |  __)   |  __)   | |         | |   (_____  )
+| (      | (      | (      | (      | |         | |         ) |
+| (____/\| )      | )      | (____/\| (____/\   | |   /\____) |
+(_______/|/       |/       (_______/(_______/   )_(   \_______)
+-->
+<script>
+  $("#hide").click(function(){
+      $("p").hide();
+  });
+
+  $("#show").click(function(){
+      $("p").show();
+  });
+
+  $("button").click(function(){
+      $("p").toggle();
+  });
+</script>
+
+<script>
+  $("button").click(function(){
+      $("#div1").fadeIn();
+      $("#div2").fadeIn("slow");
+      $("#div3").fadeIn(3000);
+  });
+
+  $("button").click(function(){
+    $("#div1").fadeOut();
+    $("#div2").fadeOut("slow");
+    $("#div3").fadeOut(3000);
+  });
+
+  $("button").click(function(){
+    $("#div1").fadeToggle();
+    $("#div2").fadeToggle("slow");
+    $("#div3").fadeToggle(3000);
+  });
+
+  $("button").click(function(){
+    $("#div1").fadeTo("slow", 0.15);
+    $("#div2").fadeTo("slow", 0.4);
+    $("#div3").fadeTo("slow", 0.7);
+  });
+</script>
+
+<!-- jQuery has the following slide methods:-->
+<script>
+  $(selector).slideDown(speed,callback);
+  $(selector).slideUp(speed,callback);
+  $(selector).slideToggle(speed,callback);
+</script>
+
+<!--     _________ _______  _
+|\     /|\__   __/(       )( \
+| )   ( |   ) (   | () () || (
+| (___) |   | |   | || || || |
+|  ___  |   | |   | |(_)| || |
+| (   ) |   | |   | |   | || |
+| )   ( |   | |   | )   ( || (____/\
+|/     \|   )_(   |/     \|(_______/
+-->
+<!--
+Three simple, but useful, jQuery methods for DOM manipulation are:
+
+text() - Sets or returns the text content of selected elements
+html() - Sets or returns the content of selected elements (including HTML markup)
+val() - Sets or returns the value of form fields
+-->
